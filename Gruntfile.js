@@ -33,20 +33,9 @@ module.exports = function (grunt) {
 
     // Configuration to be run (and then tested).
     coverage_check: {
-      default_options: {
+      prod: {
         options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+            pathToReport: ''
         }
       }
     },
@@ -63,7 +52,7 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'coverage_check', 'nodeunit']);
+  grunt.registerTask('test', []);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

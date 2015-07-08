@@ -1,4 +1,4 @@
-# coverage-check
+# grunt-covreview
 
 > Parsing lcov report and throwing an error if any file in src folder is missing
 
@@ -17,14 +17,14 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('coverage-check');
 ```
 
-## The "coverage_check" task
+## The "covreview" task
 
 ### Overview
-In your project's Gruntfile, add a section named `coverage_check` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `covreview` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  coverage_check: {
+  covreview: {
     options: {
       // Task-specific options go here.
     },
@@ -35,49 +35,25 @@ grunt.initConfig({
 })
 ```
 
-### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+### Usage Example
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
-
-### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
 
 ```js
-grunt.initConfig({
-  coverage_check: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
 grunt.initConfig({
-  coverage_check: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+  covreview: {
+        release: {
+            // List of files that are supposed to be in lcov report
+            files: [
+                {
+                    src: "src/js/**/*.js"
+                }
+            ],
+            // Path to lcov report
+            reportPath: 'target/reports/core/coverage/phantom/lcov.info',
+            strictnessLevel: 'ERROR' // Optional. If present, throws error in case if lcov is missing something
+        }
   },
 })
 ```
