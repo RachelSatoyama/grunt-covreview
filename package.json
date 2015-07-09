@@ -2,7 +2,10 @@
   "name": "grunt-covreview",
   "version": "0.0.1",
   "description": "Parsing lcov report and throwing an error if any file in src folder is missing",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/RachelSatoyama/grunt-covreview.git"
+  },
   "author": {
     "name": "Rachel Satoyama",
     "email": "rachel.satoyama@gmail.com",
