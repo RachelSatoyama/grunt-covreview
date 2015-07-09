@@ -12,7 +12,10 @@
     "url": ""
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "grunt",
+    "lcov",
+    "coverage"
   ],
   "main": "Gruntfile.js",
   "engines": {
